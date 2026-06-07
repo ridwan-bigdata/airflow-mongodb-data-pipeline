@@ -1,0 +1,26 @@
+QUERY 1: Top 5 Frequently Occurring Comments
+MongoDB Query:
+
+db.reviews.aggregate([
+  {
+    $group: {
+      _id: "$content",
+      count: { $sum: 1 }
+    }
+  },
+  {
+    $sort: { count: -1 }
+  },
+  {
+    $limit: 5
+  }
+])
+
+Output:
+[
+  { _id: 'Good', count: 11535 },
+  { _id: NaN, count: 10377 },
+  { _id: 'Nice', count: 9339 },
+  { _id: 'Nice app', count: 4750 },
+  { _id: 'Good app', count: 3554 }
+]

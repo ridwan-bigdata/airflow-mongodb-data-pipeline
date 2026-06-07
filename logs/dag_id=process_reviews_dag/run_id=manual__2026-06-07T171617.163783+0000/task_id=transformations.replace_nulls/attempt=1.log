@@ -1,0 +1,18 @@
+[2026-06-07T17:16:36.754+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-06-07T17:16:36.779+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: process_reviews_dag.transformations.replace_nulls manual__2026-06-07T17:16:17.163783+00:00 [queued]>
+[2026-06-07T17:16:36.790+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: process_reviews_dag.transformations.replace_nulls manual__2026-06-07T17:16:17.163783+00:00 [queued]>
+[2026-06-07T17:16:36.791+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2026-06-07T17:16:36.812+0000] {taskinstance.py:2879} INFO - Executing <Task(PythonOperator): transformations.replace_nulls> on 2026-06-07 17:16:17.163783+00:00
+[2026-06-07T17:16:36.825+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=128) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-07T17:16:36.824+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'process_reviews_dag', 'transformations.replace_nulls', 'manual__2026-06-07T17:16:17.163783+00:00', '--job-id', '24', '--raw', '--subdir', 'DAGS_FOLDER/process_reviews_dag.py', '--cfg-path', '/tmp/tmp8nob800b']
+[2026-06-07T17:16:36.827+0000] {standard_task_runner.py:72} INFO - Started process 137 to run task
+[2026-06-07T17:16:36.828+0000] {standard_task_runner.py:105} INFO - Job 24: Subtask transformations.replace_nulls
+[2026-06-07T17:16:36.880+0000] {task_command.py:467} INFO - Running <TaskInstance: process_reviews_dag.transformations.replace_nulls manual__2026-06-07T17:16:17.163783+00:00 [running]> on host 4649cb34398f
+[2026-06-07T17:16:36.950+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='process_reviews_dag' AIRFLOW_CTX_TASK_ID='transformations.replace_nulls' AIRFLOW_CTX_EXECUTION_DATE='2026-06-07T17:16:17.163783+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-06-07T17:16:17.163783+00:00'
+[2026-06-07T17:16:36.952+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-06-07T17:16:46.077+0000] {python.py:240} INFO - Done. Returned value was: None
+[2026-06-07T17:16:46.083+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-06-07T17:16:46.085+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=process_reviews_dag, task_id=transformations.replace_nulls, run_id=manual__2026-06-07T17:16:17.163783+00:00, execution_date=20260607T171617, start_date=20260607T171636, end_date=20260607T171646
+[2026-06-07T17:16:46.123+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2026-06-07T17:16:46.140+0000] {taskinstance.py:3891} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-06-07T17:16:46.151+0000] {local_task_job_runner.py:240} INFO - ::endgroup::

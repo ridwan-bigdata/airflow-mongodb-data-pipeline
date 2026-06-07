@@ -1,0 +1,24 @@
+[2026-06-07T16:26:05.546+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-06-07T16:26:05.564+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: process_reviews_dag.wait_for_file manual__2026-06-07T16:25:58.319712+00:00 [queued]>
+[2026-06-07T16:26:05.570+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: process_reviews_dag.wait_for_file manual__2026-06-07T16:25:58.319712+00:00 [queued]>
+[2026-06-07T16:26:05.572+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2026-06-07T16:26:05.600+0000] {taskinstance.py:2879} INFO - Executing <Task(FileSensor): wait_for_file> on 2026-06-07 16:25:58.319712+00:00
+[2026-06-07T16:26:05.626+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=110) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-07T16:26:05.631+0000] {standard_task_runner.py:72} INFO - Started process 119 to run task
+[2026-06-07T16:26:05.627+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'process_reviews_dag', 'wait_for_file', 'manual__2026-06-07T16:25:58.319712+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/process_reviews_dag.py', '--cfg-path', '/tmp/tmpe0gj77z5']
+[2026-06-07T16:26:05.634+0000] {standard_task_runner.py:105} INFO - Job 3: Subtask wait_for_file
+[2026-06-07T16:26:05.848+0000] {task_command.py:467} INFO - Running <TaskInstance: process_reviews_dag.wait_for_file manual__2026-06-07T16:25:58.319712+00:00 [running]> on host 4649cb34398f
+[2026-06-07T16:26:06.069+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='process_reviews_dag' AIRFLOW_CTX_TASK_ID='wait_for_file' AIRFLOW_CTX_EXECUTION_DATE='2026-06-07T16:25:58.319712+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-06-07T16:25:58.319712+00:00'
+[2026-06-07T16:26:06.072+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-06-07T16:26:06.165+0000] {baseoperator.py:405} WARNING - FileSensor.execute cannot be called outside TaskInstance!
+[2026-06-07T16:26:06.177+0000] {base.py:84} INFO - Retrieving connection 'fs_default'
+[2026-06-07T16:26:06.178+0000] {filesystem.py:109} INFO - Poking for file /opt/airflow/incoming/tiktok_google_play_reviews.csv
+[2026-06-07T16:26:06.189+0000] {filesystem.py:113} INFO - Found File /opt/airflow/incoming/tiktok_google_play_reviews.csv last modified: 20220405221612
+[2026-06-07T16:26:06.190+0000] {base.py:336} INFO - Success criteria met. Exiting.
+[2026-06-07T16:26:06.191+0000] {filesystem.py:109} INFO - Poking for file /opt/airflow/incoming/tiktok_google_play_reviews.csv
+[2026-06-07T16:26:06.198+0000] {filesystem.py:113} INFO - Found File /opt/airflow/incoming/tiktok_google_play_reviews.csv last modified: 20220405221612
+[2026-06-07T16:26:06.203+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-06-07T16:26:06.204+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=process_reviews_dag, task_id=wait_for_file, run_id=manual__2026-06-07T16:25:58.319712+00:00, execution_date=20260607T162558, start_date=20260607T162605, end_date=20260607T162606
+[2026-06-07T16:26:06.254+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2026-06-07T16:26:06.283+0000] {taskinstance.py:3891} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-06-07T16:26:06.294+0000] {local_task_job_runner.py:240} INFO - ::endgroup::

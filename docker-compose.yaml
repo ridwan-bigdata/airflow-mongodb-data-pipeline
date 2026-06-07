@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+
+  airflow:
+    image: apache/airflow:2.10.0
+
+    container_name: airflow
+
+    ports:
+      - "8080:8080"
+
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./incoming:/opt/airflow/incoming
+      - ./processed:/opt/airflow/processed
+      - ./logs:/opt/airflow/logs
+      - ./requirements.txt:/requirements.txt
+
+    command: >
+      bash -c "
+      airflow standalone
+      "
+
+    depends_on:
+      - mongodb

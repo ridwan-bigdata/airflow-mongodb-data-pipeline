@@ -1,0 +1,52 @@
+QUERY 2: All Entries Where Content Length Is Less Than 5 Characters
+MongoDB Query:
+
+db.reviews.aggregate([
+  {
+    $match: {
+      $expr: {
+        $lt: [
+          {
+            $strLenCP: {
+              $toString: "$content"
+            }
+          },
+          5
+        ]
+      }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      content: 1,
+      score: 1,
+      at: 1
+    }
+  }
+])
+
+Output:
+
+[
+  { content: 'Cool', score: 5, at: '2022-01-17 10:46:27' },
+  { content: 'Best', score: 5, at: '2022-01-17 10:46:40' },
+  { content: 'good', score: 5, at: '2022-01-17 10:48:11' },
+  { content: 'Good', score: 1, at: '2022-01-17 10:48:38' },
+  { content: 'Nice', score: 5, at: '2022-01-17 10:50:48' },
+  { content: 'Nice', score: 5, at: '2022-01-17 10:52:42' },
+  { content: NaN, score: 5, at: '2022-01-17 10:52:55' },
+  { content: 'Good', score: 5, at: '2022-01-17 10:55:05' },
+  { content: 'Nice', score: 3, at: '2022-01-17 10:55:08' },
+  { content: 'Nice', score: 5, at: '2022-01-17 10:55:38' },
+  { content: 'Bc', score: 5, at: '2022-01-17 11:00:30' },
+  { content: 'Aaa', score: 1, at: '2022-01-17 11:01:59' },
+  { content: 'Good', score: 5, at: '2022-01-17 11:03:14' },
+  { content: 'Nice', score: 5, at: '2022-01-17 11:03:54' },
+  { content: 'Wow', score: 5, at: '2022-01-17 11:07:17' },
+  { content: 'Good', score: 1, at: '2022-01-17 11:08:15' },
+  { content: NaN, score: 5, at: '2022-01-17 11:14:34' },
+  { content: 'Nice', score: 5, at: '2022-01-17 11:16:45' },
+  { content: 'Nn', score: 3, at: '2022-01-17 11:20:21' },
+  { content: 'Yas', score: 1, at: '2022-01-17 11:22:22' }
+]

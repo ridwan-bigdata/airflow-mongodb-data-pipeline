@@ -1,0 +1,111 @@
+QUERY 3: Average Rating for Each Day
+
+MongoDB Query:
+
+db.reviews.aggregate([
+  {
+    $group: {
+      _id: {
+        $dateTrunc: {
+          date: {
+            $toDate: "$at"
+          },
+          unit: "day"
+        }
+      },
+      avg_rating: {
+        $avg: "$score"
+      }
+    }
+  },
+  {
+    $sort: {
+      _id: 1
+    }
+  }
+])
+
+Output:
+
+[
+  {
+    _id: ISODate('2022-01-17T00:00:00.000Z'),
+    avg_rating: 4.359368143922773
+  },
+  {
+    _id: ISODate('2022-01-18T00:00:00.000Z'),
+    avg_rating: 4.316648531011969
+  },
+  {
+    _id: ISODate('2022-01-19T00:00:00.000Z'),
+    avg_rating: 4.333502152443657
+  },
+  {
+    _id: ISODate('2022-01-20T00:00:00.000Z'),
+    avg_rating: 4.337206365243748
+  },
+  {
+    _id: ISODate('2022-01-21T00:00:00.000Z'),
+    avg_rating: 4.378759648655842
+  },
+  {
+    _id: ISODate('2022-01-22T00:00:00.000Z'),
+    avg_rating: 4.337181337181337
+  },
+  {
+    _id: ISODate('2022-01-23T00:00:00.000Z'),
+    avg_rating: 4.298110566829951
+  },
+  {
+    _id: ISODate('2022-01-24T00:00:00.000Z'),
+    avg_rating: 4.323939808481533
+  },
+  {
+    _id: ISODate('2022-01-25T00:00:00.000Z'),
+    avg_rating: 4.305135951661631
+  },
+  {
+    _id: ISODate('2022-01-26T00:00:00.000Z'),
+    avg_rating: 4.330061693774537
+  },
+  {
+    _id: ISODate('2022-01-27T00:00:00.000Z'),
+    avg_rating: 4.323398328690808
+  },
+  {
+    _id: ISODate('2022-01-28T00:00:00.000Z'),
+    avg_rating: 4.355549358616844
+  },
+  {
+    _id: ISODate('2022-01-29T00:00:00.000Z'),
+    avg_rating: 4.309254498714653
+  },
+  {
+    _id: ISODate('2022-01-30T00:00:00.000Z'),
+    avg_rating: 4.320466321243523
+  },
+  {
+    _id: ISODate('2022-01-31T00:00:00.000Z'),
+    avg_rating: 4.262430126507796
+  },
+  {
+    _id: ISODate('2022-02-01T00:00:00.000Z'),
+    avg_rating: 4.32960235640648
+  },
+  {
+    _id: ISODate('2022-02-02T00:00:00.000Z'),
+    avg_rating: 4.306634787806336
+  },
+  {
+    _id: ISODate('2022-02-03T00:00:00.000Z'),
+    avg_rating: 4.2972027972027975
+  },
+  {
+    _id: ISODate('2022-02-04T00:00:00.000Z'),
+    avg_rating: 4.3203450327186195
+  },
+  {
+    _id: ISODate('2022-02-05T00:00:00.000Z'),
+    avg_rating: 4.318132464712269
+  }
+]
