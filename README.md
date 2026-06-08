@@ -184,7 +184,7 @@ Objective:
 
 Identify the most common review comments in the dataset.
 
-Example Result:
+Result:
 
 ```text
 Good      11535
